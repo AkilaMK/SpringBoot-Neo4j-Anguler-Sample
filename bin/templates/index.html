@@ -1,0 +1,48 @@
+<!doctype html>
+<html ng-app="demo">
+	<head>
+		<title>Hello AngularJS</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
+    	<script src="./js/app.js"></script>
+	</head>
+
+	<body>
+		<div ng-controller="productController">
+		
+			<div>
+			    <p>Product Name: <input type="text" name="addProductName" ng-model="addProductName" th:required="required" /></p>
+			    <p>First Name: <input type="text" name="addPrice" ng-model="addPrice" th:required="required" /></p>
+			    <button ng-click="addProduct()">Submit</button>
+			    <hr />
+			    {{ PostDataResponse }}
+			</div>
+		
+			<div>
+			    <p>Product Name: <input type="text" name="searchProductName" ng-model="searchProductName" th:required="required" /></p>
+			    <button ng-click="searchProduct()">Search</button>
+			    <hr />
+			</div>
+		
+			<div>
+			    <table>
+			    <thead>
+			        <tr>
+			            <th>ID</th>
+			            <th>Product Name</th>
+			            <th>Price</th>
+			        </tr>
+			    </thead>
+			    <tbody>
+			        <tr ng-repeat="product in products">
+			            <td>{{product.productId}}</td>
+			            <td>{{product.productName}}</td>
+			            <td>{{product.price}}</td>
+			        </tr>
+			    </tbody>
+			    </table>
+			</div>
+		
+		</div>
+
+	</body>
+</html>
